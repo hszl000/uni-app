@@ -1,0 +1,38 @@
+{
+	"pages": [
+		{
+			"path": "modules/home/pages/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "modules/mine/pages/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "朱丫头",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"backgroundColor":"#ffffff",
+		"borderStyle":"write",
+		"list":[
+			{
+				"pagePath":"modules/home/pages/index",
+				"iconPath":"static/home_0.png",
+				"selectedIconPath":"static/home_1.png"
+			},
+			{
+				"pagePath":"modules/mine/pages/index",
+				"iconPath":"static/mine_0.png",
+				"selectedIconPath":"static/mine_1.png"
+			}
+		]
+	}
+}
