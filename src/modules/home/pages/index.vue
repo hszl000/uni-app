@@ -45,7 +45,7 @@
         :title="'标签 ' + index"
       />
     </van-tabs>
-    <List />
+    <List :data="list" />
   </view>
 </template>
 
@@ -57,15 +57,23 @@ import List from "modules/home/components/List.vue";
 
 const homeStore = useHomeStore()
 
-const title = ref("朱丫头")
+const params = ref({
+  current:1,
+  size:10
+})
 
-const setName = () => {
-  homeStore.setName("丁林")
+const list = ref([])
+const initData = async ()=>{
+  const {code,data} = await homeStore.getPage(params.value)
+
+  if(code === 200){
+    list.value = data.records
+    console.log(list.value,'list')
+  }
 }
 
-const test = () => {
-  showToast("测试信息")
-}
+initData()
+
 //
 const active = ref(0);
 </script>

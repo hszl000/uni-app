@@ -1,4 +1,7 @@
 import { defineStore } from "pinia";
+import {
+  getPage
+} from 'modules/home/api'
 
 export const useHomeStore = defineStore("homeStore",{
   state:()=>{
@@ -12,6 +15,12 @@ export const useHomeStore = defineStore("homeStore",{
   actions:{
     setName(val){
       this.name = val
+    },
+    async getPage(data){
+
+      const res = await getPage(data)
+
+      return this.filterRequest(res)
     }
   }
 })

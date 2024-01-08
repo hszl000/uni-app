@@ -14,6 +14,15 @@ export default defineConfig({
       resolvers: [VantResolver()],
     }),
   ],
+  server:{
+    proxy:{
+      '/api':{
+        target:'http://192.168.0.107:8080',
+        changeOrigin:true,
+        rewrite:(path)=> path.replace(/\/api/,'')
+      }
+    }
+  },
   resolve:{
     alias:[
       {

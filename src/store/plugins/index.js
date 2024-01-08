@@ -1,3 +1,5 @@
+import filterRequest from '@/store/plugins/filterRequest'
+
 export default ctx =>{
-  console.log(ctx,'ctx')
+  ctx.store.filterRequest = filterRequest
 }

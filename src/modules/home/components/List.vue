@@ -1,19 +1,20 @@
 <template>
   <view class="home-list">
     <view
-      v-for="item in 8"
+      v-for="item in data"
       :key="item"
       class="list-goodsItem"
+      @click="handleDetail"
     >
       <van-image
         width="100%"
         height="200"
-        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
+        :src="item.productImageUrl"
       />
       <view class="goodsItem-content">
         <view>
-          <view>猫</view>
-          <view>￥23032</view>
+          <view>{{ item.productDescription }}</view>
+          <view>{{ item.productPrice }}</view>
         </view>
         <view>
           <van-icon
@@ -25,7 +26,23 @@
   </view>
 </template>
 
-<script setup></script>
+<script setup>
+import {uni} from '@dcloudio/uni-h5'
+defineProps({
+  data:{
+    type:Array,
+    default:()=>([])
+  }
+})
+const handleDetail = ()=>{
+  // alert(111)
+  //在起始页面跳转到test.vue页面并传递参数
+  uni.navigateTo({
+    url: '/modules/detail/pages/index?id=1&name=uniapp'
+  });
+
+}
+</script>
 
 <style scoped lang="scss">
   .home-list{
